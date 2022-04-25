@@ -9,8 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class RevUtilsTest {
     @Test
     void checkNeoError() {
-        assertThrows(RuntimeException.class, () -> RevUtils.checkNeoError(REVLibError.kError, ""));
-        assertThrows(RuntimeException.class, () -> RevUtils.checkNeoError(REVLibError.kCantFindFirmware, ""));
+        // NOTE(rcahoon, 2022-04-24): The library code was changed to report errors using DriverStation.reportError instead of throwing an exception,
+        //     but this test seems not to have been updated. WPILibJ currently has no way of interrogating which errors were reported with reportError,
+        //     so I'm just disabling these assertions for now.
+        //assertThrows(RuntimeException.class, () -> RevUtils.checkNeoError(REVLibError.kError, ""));
+        //assertThrows(RuntimeException.class, () -> RevUtils.checkNeoError(REVLibError.kCantFindFirmware, ""));
         assertDoesNotThrow(() -> RevUtils.checkNeoError(REVLibError.kOk, ""));
     }
 }
