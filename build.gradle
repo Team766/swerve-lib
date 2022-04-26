@@ -9,7 +9,7 @@ targetCompatibility = JavaVersion.VERSION_11
 
 allprojects {
     group 'com.swervedrivespecialties'
-    version '2.0.1'
+    version '2.0.2'
 
     repositories {
         mavenCentral()
